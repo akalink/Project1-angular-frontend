@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+#portal {
+    text-align: center;
+    background-color: beige;
+}
+.form-input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#login {
+    text-align: center;
+}
+#logout-btn {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
