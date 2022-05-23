@@ -46,7 +46,7 @@ export class UserService {
     if (user) {
       if(JSON.parse(user).userRole === 'Employee'){
         return 2;
-      } else if(JSON.parse(user).userRole === 'E'){
+      } else if(JSON.parse(user).userRole === 'Finance Manager'){
         return 1;
       }
     }
