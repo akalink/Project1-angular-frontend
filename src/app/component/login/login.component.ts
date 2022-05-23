@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
         console.log(role);
         if(role === "Employee"){
           this.router.navigate(['/employee'])
+        } else if (role === 'Finance Manager'){
+          this.router.navigate(['manager'])
         }
         
       },

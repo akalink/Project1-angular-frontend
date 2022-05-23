@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { EmployeeComponent } from './component/employee/employee.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { ManagerComponent } from './component/manager/manager.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { LogoutComponent } from './component/logout/logout.component';
     LoginComponent,
     EmployeeComponent,
     LogoutComponent,
+    ManagerComponent,
   ],
   imports: [
     BrowserModule,
