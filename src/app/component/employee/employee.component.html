@@ -1,4 +1,33 @@
 <h2>Welcome to Employee Reinbursment Portal</h2>
+<button class="center-btn" (click)="ShowForm()">Submission Form</button>
+<div id="portal" *ngIf="displayForm">
+    <h3>New Ticket Form</h3>
+        <div class="form-input">
+            <label for="ticketName">Ticket Name:</label>
+            <input id="ticketName" #ticketName type="text">
+        </div>
+        <div class="form-input">
+            <label for="description">Ticket Description:</label>
+            <input id="description" #description type="text">
+        </div>
+        <div class="form-input">
+            <label for="amount">Ticket Amount:</label>
+            <input id="amount" #amount type="number">
+        </div>
+        <div>
+        <label for="a-file-input">Photograph of Receipt</label>
+        <input type="file" id="a-file-input" />
+        </div>
+        <div class="form-input">
+            <label for="type">Ticket Type:</label>
+            <span *ngFor="let type of types">
+                <input  type="radio" #type name="type" value={{type.type}} (change)="typeChangeHandler($event)">
+                <label for="Lodging">{{type.name}}</label>
+            </span>
+           
+        </div>
+        <button id="submit-btn" (click)="Submit(ticketName.value, description.value, amount.value)">Submit</button>
+</div>
 <h3 class="left" id="status-header"></h3>
         <table id="Tickets-tbl">
             <thead>

@@ -10,9 +10,10 @@
 #login {
     text-align: center;
 }
-#logout-btn {
-    text-align: center;
-}
 .left {
     text-align: left;
+}
+.center-btn {
+    text-align: center;
+    align-items: center;
 }

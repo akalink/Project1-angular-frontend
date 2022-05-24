@@ -11,7 +11,7 @@ const URL = environment.BACKEND_URL;
   providedIn: 'root'
 })
 export class TicketService {
-
+  
   
   httpOptions = { 
     headers: new HttpHeaders({
@@ -44,8 +44,7 @@ export class TicketService {
   }
 
 
-
-  postTicket(ticket:Ticket): Observable<any>{ //not tested
+  postTicket(ticket:any): Observable<any>{ //not tested
     return this.http.post<Ticket>(URL+ '/users/' + this.userService.getUser().id + '/tickets', ticket, this.httpOptions)
   }
 }
