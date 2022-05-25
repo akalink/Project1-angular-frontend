@@ -1,3 +1,5 @@
+import { LiteralExpr } from "@angular/compiler";
+
 export interface Ticket {
     id: number,
     ticketName: string;
@@ -9,4 +11,5 @@ export interface Ticket {
     employeeUserName: string;
     financeManagerUserName: string;
     status: string;
+    image : string;
 }

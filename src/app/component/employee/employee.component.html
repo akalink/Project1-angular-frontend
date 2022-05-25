@@ -15,13 +15,13 @@
             <input id="amount" #amount type="number">
         </div>
         <div>
-        <label for="a-file-input">Photograph of Receipt</label>
-        <input type="file" id="a-file-input" />
+        <label for="a-file-input">Photograph of Receipt:</label>
+        <input type="file" (change)="OnFileSelected($event)" id="a-file-input" />
         </div>
         <div class="form-input">
             <label for="type">Ticket Type:</label>
             <span *ngFor="let type of types">
-                <input  type="radio" #type name="type" value={{type.type}} (change)="typeChangeHandler($event)">
+                <input  type="radio" #type name="type" value={{type.type}} (change)="TypeChangeHandler($event)">
                 <label for="Lodging">{{type.name}}</label>
             </span>
            
@@ -55,5 +55,5 @@
         <td>{{ticket.employeeUserName}}</td>
         <td>{{ticket.financeManagerUserName}}</td>
         <td>{{ticket.status}}</td>
-        <td>image</td>
+        <td><img  class="images" src="{{ticket.image}}" alt="not found"/></td>
     </tr></tbody>

@@ -18,6 +18,7 @@ export class EmployeeComponent implements OnInit {
     {type: '3', name:'Food'},
     {type: '4', name:'Other'}
   ]
+  image: string = '';
 
 
   displayForm : boolean = false;
@@ -33,10 +34,14 @@ export class EmployeeComponent implements OnInit {
 
   getTickets(){
     this.tickets = [];
-    this.ticketService.getEmployeeTickets().subscribe({
+    this.ticketService.GetEmployeeTickets().subscribe({
       next: (data) => {
-        console.log(data.body);
+        //console.log(data.body);
         this.tickets =(data.body);
+        
+        this.tickets.forEach((ticket : any)=>{
+          ticket.image = this.GetImage(ticket.id);
+        })
         console.log(this.tickets);
       },
        error: (err: any) => {
@@ -50,17 +55,42 @@ export class EmployeeComponent implements OnInit {
   }
 
   Submit(ticketName: any, description : any, amount : any){
-    let form = {ticketName: ticketName, description: description, amount: amount, type: this.selectedType}
+    let form = {ticketName: ticketName, description: description, amount: amount, type: this.selectedType, image: this.image}
     const amountN = Number(amount);
     console.log(form);
-    
-
-    this.ShowForm();
-    this.getTickets();
+    this.ticketService.PostTicket(form).subscribe({
+      next: (data) => {
+        console.log("posted");
+        this.ShowForm();
+        this.getTickets();
+      },
+      error: (err) => {
+        console.log("did not post")
+      }
+    });
   }
 
-  typeChangeHandler(evant:any){
+  TypeChangeHandler(evant:any){
     this.selectedType = evant.target.value;
+  }
+
+  GetImage(id: any): any{
+    console.log("img id: " + id);
+    this.ticketService.GetImage(id).subscribe({
+      next: (data) => {
+        console.log("got image");
+        return data.body;
+      },
+      error: (err: any) =>{
+        console.log("did not get img id: " + id);
+        return null;
+      }
+    })
+  }
+
+  OnFileSelected(event: any){
+    console.log(event);
+    this.image = event.target.files[0];
   }
 
 }

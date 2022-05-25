@@ -22,7 +22,7 @@ export class ManagerComponent implements OnInit {
   getPendingTickets(){
     this.tickets = [];
     
-    this.ticketService.getAllPendingTickets().subscribe({
+    this.ticketService.GetAllPendingTickets().subscribe({
       next: (data) => {
         console.log(data.body);
         this.tickets =(data.body);
@@ -37,7 +37,7 @@ export class ManagerComponent implements OnInit {
   getAllTickets(){
     this.tickets = [];
     
-    this.ticketService.getAllTickets().subscribe({
+    this.ticketService.GetAllTickets().subscribe({
       next: (data) => {
         console.log(data.body);
         this.tickets =(data.body);

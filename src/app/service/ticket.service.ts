@@ -25,26 +25,26 @@ export class TicketService {
     private userService: UserService
   ) { }
 
-  getEmployeeTickets(): Observable<any>{
+  GetEmployeeTickets(): Observable<any>{
     console.log(URL + '/user/' + this.userService.getUser().id + '/tickets');
     console.log(localStorage.getItem('auth-token'));
     return this.http.get<any>(URL + '/user/' + this.userService.getUser().id + '/tickets', this.httpOptions)
   }
 
-  getAllTickets(): Observable<any>{ //not tested
+  GetAllTickets(): Observable<any>{ //not tested
     return this.http.get<any>(URL + '/tickets', this.httpOptions)
   }
 
-  getAllPendingTickets(): Observable<any>{ //not tested
+  GetAllPendingTickets(): Observable<any>{ //not tested
     return this.http.get<any>(URL + '/tickets/pending', this.httpOptions)
   }
 
-  getimage(id:number): Observable<any>{ //not tested
-    return this.http.get<any>(URL + '/tickets/' + id + '/tickets')
+  GetImage(id:any): Observable<any>{
+    return this.http.get<any>(URL + '/tickets/' + id + '/image');
   }
 
 
-  postTicket(ticket:any): Observable<any>{ //not tested
-    return this.http.post<Ticket>(URL+ '/users/' + this.userService.getUser().id + '/tickets', ticket, this.httpOptions)
+  PostTicket(ticket:any): Observable<any>{ //not tested
+    return this.http.post<any>(URL+ '/users/' + this.userService.getUser().id + '/tickets', ticket, this.httpOptions)
   }
 }
